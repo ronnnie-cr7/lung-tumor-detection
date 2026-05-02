@@ -29,18 +29,36 @@ The project evolves through multiple stages of improvement:
   - Hausdorff Distance (boundary accuracy)
 
 ---
-
 ## 📂 Project Structure
 
-```
 lung-tumor-detection/
 │
-├── M1_EDA_Analysis.ipynb
-├── M2_3D_UNet_Segmentation.ipynb
-├── M3_Data_Augmentation_Comparison.ipynb
-├── M4_Lung_Tumor(1).ipynb
+├── notebooks/
+│   ├── M1_EDA_Analysis.ipynb
+│   ├── M2_3D_UNet_Segmentation.ipynb
+│   ├── M3_Data_Augmentation_Comparison.ipynb
+│   └── M4_Attention_UNet_MC_Dropout.ipynb
+│
+├── results/
+│   ├── figures/
+│   │   ├── ct_slice_vs_mask.png
+│   │   ├── ground_truth_vs_pred.png
+│   │   ├── attention_unet.png
+│   │   ├── 3dunet_vs_aug.png
+│   │   ├── app.png
+│   │   ├── sample0.png
+│   │   ├── sample1.png
+│   │   └── sample2.png
+│   └── stats/
+│       ├── statistics.png
+│       ├── statistics2.png
+│       ├── statistics3.png
+│       ├── statistics4.png
+│       ├── statistics5.png
+│       └── statistics6.png
+│
+├── .gitignore
 └── README.md
-```
 
 ---
 
@@ -120,7 +138,7 @@ Indicates model confidence per voxel.
 ## 🛠️ Tech Stack
 
 - Python
-- TensorFlow / PyTorch
+- TensorFlow 
 - NumPy, OpenCV
 - Matplotlib
 - Google Colab
