@@ -129,10 +129,8 @@ Indicates model confidence per voxel.
 
 ## 🚀 Future Improvements
 
-- 3D Attention U-Net enhancement
 - Dice + Focal loss
 - HD95 metric integration
-- Web deployment (Streamlit)
 - Improved boundary refinement
 
 ---
