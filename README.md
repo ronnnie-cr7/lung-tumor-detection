@@ -104,6 +104,16 @@ Evaluation:
 
 ---
 
+## 📊 Data Split
+| Split | Ratio | Purpose |
+|-------|-------|---------|
+| Train | 80%   | Model training |
+| Val   | 20%   | Evaluation (Dice Score, Hausdorff Distance) |
+
+> ⚠️ Due to the limited size of the LIDC-IDRI preprocessed dataset,
+> an 80/20 train/val split was used across all models to maximize 
+> training samples. A separate test set was not held out.
+
 ## 📊 Evaluation Metrics
 
 ### Dice Score
