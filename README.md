@@ -1,4 +1,4 @@
-# 🫁 Lung Tumor Segmentation using 3D U-Net & Attention U-Net (Deep Learning Project)
+# 🫁 Lung Tumor Segmentation using 3D U-Net & Attention U-Net
 
 ---
 
@@ -24,13 +24,13 @@ The project evolves through multiple stages of improvement:
 - Improve generalization using data augmentation
 - Enhance segmentation using Attention mechanisms
 - Estimate prediction uncertainty using MC Dropout
-- Evaluate performance using:
-  - Dice Score (region overlap)
-  - Hausdorff Distance (boundary accuracy)
+- Evaluate performance using Dice Score and Hausdorff Distance
 
 ---
+
 ## 📂 Project Structure
 
+```
 lung-tumor-detection/
 │
 ├── notebooks/
@@ -45,95 +45,67 @@ lung-tumor-detection/
 │   │   ├── ground_truth_vs_pred.png
 │   │   ├── attention_unet.png
 │   │   ├── 3dunet_vs_aug.png
-│   │   ├── app.png
-│   │   ├── sample0.png
-│   │   ├── sample1.png
-│   │   └── sample2.png
+│   │   └── sample0.png, sample1.png, sample2.png
 │   └── stats/
-│       ├── statistics.png
-│       ├── statistics2.png
-│       ├── statistics3.png
-│       ├── statistics4.png
-│       ├── statistics5.png
-│       └── statistics6.png
+│       └── statistics.png ... statistics6.png
 │
 ├── .gitignore
 └── README.md
+```
 
 ---
 
 ## 🔍 Detailed Workflow
 
-### 🔹 M1: Exploratory Data Analysis (EDA)
-
-- Visualized 3D CT scan slices (voxels)
+### 🔹 M1: Exploratory Data Analysis
+- Visualized 3D CT scan slices
 - Identified tumor vs non-tumor regions
 - Analyzed class imbalance
 - Preprocessed volumetric data (normalization, reshaping)
 
----
-
-### 🔹 M2: Baseline 3D U-Net Model
-
-- Implemented 3D U-Net architecture
-- Encoder–decoder structure with skip connections
-- Input: 3D CT voxel volumes
-- Output: tumor segmentation masks
-
-Evaluation:
-- Dice Score
-
----
+### 🔹 M2: Baseline 3D U-Net
+- Implemented 3D U-Net with encoder–decoder + skip connections
+- Input: 3D CT voxel volumes → Output: tumor segmentation masks
+- Evaluation: Dice Score
 
 ### 🔹 M3: Data Augmentation
-
 - Rotation, flipping, noise injection
-- Improved generalization
-- Reduced overfitting
-- Increased Dice Score significantly
-
----
+- Improved generalization and reduced overfitting
+- Significant Dice Score improvement over baseline
 
 ### 🔹 M4: Attention U-Net + MC Dropout
-
-- Attention U-Net for focused tumor segmentation
-- MC Dropout for uncertainty estimation
-- Outputs:
-  - Segmentation mask
-  - Uncertainty map
+- Attention gates for focused tumor segmentation
+- MC Dropout for per-voxel uncertainty estimation
+- Outputs: Segmentation mask + Uncertainty map
 
 ---
 
 ## 📊 Data Split
+
 | Split | Ratio | Purpose |
 |-------|-------|---------|
-| Train | 80%   | Model training |
-| Val   | 20%   | Evaluation (Dice Score, Hausdorff Distance) |
+| Train | 80% | Model training |
+| Val | 20% | Evaluation |
 
-> ⚠️ Due to the limited size of the LIDC-IDRI preprocessed dataset,
-> an 80/20 train/val split was used across all models to maximize 
-> training samples. A separate test set was not held out.
-
-## 📊 Evaluation Metrics
-
-### Dice Score
-Measures overlap between prediction and ground truth.
-
-### Hausdorff Distance
-Measures maximum boundary deviation between predicted and actual tumor.
-
-### Uncertainty Map
-Indicates model confidence per voxel.
+> ⚠️ Due to limited dataset size, an 80/20 train/val split was used across all models to maximize training samples. A separate test set was not held out.
 
 ---
 
 ## 📈 Results Summary
 
 | Model | Dice Score | Insight |
-|------|------------|--------|
-| 3D U-Net | ~0.44 | Baseline performance |
-| + Augmentation | ~0.65 | Strong improvement |
+|-------|------------|---------|
+| 3D U-Net (Baseline) | ~0.44 | Baseline performance |
+| 3D U-Net + Augmentation | ~0.65 | Strong improvement |
 | Attention U-Net + MC Dropout | ~0.68–0.70 | Best performance + uncertainty |
+
+---
+
+## 📊 Evaluation Metrics
+
+- **Dice Score** — measures overlap between prediction and ground truth
+- **Hausdorff Distance** — measures maximum boundary deviation
+- **Uncertainty Map** — indicates model confidence per voxel
 
 ---
 
@@ -141,14 +113,14 @@ Indicates model confidence per voxel.
 
 - LIDC-IDRI dataset (Kaggle)
 - 3D CT scans with voxel-level annotations
-- Binary segmentation (tumor / non-tumor)
+- Binary segmentation: tumor / non-tumor
 
 ---
 
 ## 🛠️ Tech Stack
 
-- Python
-- TensorFlow 
+- Python 3.x
+- TensorFlow 2.x
 - NumPy, OpenCV
 - Matplotlib
 - Google Colab
@@ -157,21 +129,21 @@ Indicates model confidence per voxel.
 
 ## 🚀 Future Improvements
 
-- Dice + Focal loss
+- Dice + Focal loss for harder negatives
 - HD95 metric integration
 - Improved boundary refinement
+- Gradio/Streamlit deployment
 
 ---
 
 ## 📚 References
 
-- LIDC-IDRI dataset (Kaggle)
-- Cicek et al., 3D U-Net
-- Oktay et al., Attention U-Net
+- LIDC-IDRI dataset — Kaggle
+- Çiçek et al., 3D U-Net (2016)
+- Oktay et al., Attention U-Net (2018)
 
 ---
 
 ## 👨‍💻 Author
 
-Ronit
-```
+**Ronit**
